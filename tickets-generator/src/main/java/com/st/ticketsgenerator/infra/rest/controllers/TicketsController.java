@@ -1,18 +1,30 @@
 package com.st.ticketsgenerator.infra.rest.controllers;
 
-import com.st.ticketsgenerator.infra.rest.dto.TicketDto;
+import com.st.ticketsgenerator.domain.Ticket;
+import com.st.ticketsgenerator.domain.service.TicketService;
+import com.st.ticketsgenerator.infra.rest.dtos.TicketDto;
+import com.st.ticketsgenerator.infra.rest.mappers.TicketMapper;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Tag(name = "Tickets", description = "Ticket's API")
 @RestController
 @RequestMapping("/v1/tickets")
+@Validated
+@AllArgsConstructor
 public class TicketsController {
+
+    private TicketService ticketService;
 
     @PostMapping
     @ApiResponses({
@@ -23,7 +35,8 @@ public class TicketsController {
             @ApiResponse(description = "BAD REQUEST", responseCode = "400", content = @Content)
     })
     @ResponseStatus(HttpStatus.CREATED)
-    public TicketDto generate() {
-        return new TicketDto();
+    public Ticket generate(@RequestBody @Valid TicketDto ticketDto) {
+        Ticket ticket = TicketMapper.INSTANCE.ticketDtoToTicket(ticketDto);
+        return ticketService.save(ticket);
     }
 }
