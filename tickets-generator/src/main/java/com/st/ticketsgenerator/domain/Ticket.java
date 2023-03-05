@@ -4,12 +4,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "TICKET")
 @Getter
 @Setter
-public class Ticket {
+public class Ticket implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,4 +34,18 @@ public class Ticket {
     @Column(name = "CLIENT_PHONE_NUMBER", nullable = false)
     private String clientPhoneNumber;
 
+
+    @Override
+    public String
+    toString() {
+        return "Ticket{" +
+                "id=" + id +
+                ", ticketNumber='" + ticketNumber + '\'' +
+                ", storeId=" + storeId +
+                ", storeName='" + storeName + '\'' +
+                ", serviceId=" + serviceId +
+                ", serviceName='" + serviceName + '\'' +
+                ", clientPhoneNumber='" + clientPhoneNumber + '\'' +
+                '}';
+    }
 }
