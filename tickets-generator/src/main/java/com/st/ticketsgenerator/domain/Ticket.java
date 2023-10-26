@@ -1,9 +1,9 @@
 package com.st.ticketsgenerator.domain;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
