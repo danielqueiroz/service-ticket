@@ -1,9 +1,8 @@
 package com.st.ticketsgenerator.infra.rest.dtos;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
