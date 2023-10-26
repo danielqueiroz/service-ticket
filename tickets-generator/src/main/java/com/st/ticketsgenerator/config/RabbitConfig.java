@@ -14,9 +14,10 @@ import org.springframework.stereotype.Component;
 public class RabbitConfig {
 
     private final AmqpAdmin amqpAdmin;
-
-    public RabbitConfig(AmqpAdmin amqpAdmin) {
+    private final RabbitConfigProperties rabbitConfigProperties;
+    public RabbitConfig(AmqpAdmin amqpAdmin, RabbitConfigProperties rabbitConfigProperties) {
         this.amqpAdmin = amqpAdmin;
+        this.rabbitConfigProperties = rabbitConfigProperties;
     }
 
     @Bean
@@ -31,14 +32,12 @@ public class RabbitConfig {
         return rabbitTemplate;
     }
 
-    private static final String EXCHANGE_NAME = "amq.direct";
-
     private Queue queue() {
-        return new Queue("app.tickets.generated", true, false, false);
+        return new Queue(rabbitConfigProperties.getQueueName(), true, false, false);
     }
 
     private DirectExchange directExchange() {
-        return new DirectExchange(EXCHANGE_NAME);
+        return new DirectExchange(rabbitConfigProperties.getExchangeName());
     }
 
     private Binding bindingQueue(Queue queue, DirectExchange directExchange) {
