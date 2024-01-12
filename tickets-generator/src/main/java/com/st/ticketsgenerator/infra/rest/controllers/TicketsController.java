@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 public class TicketsController {
 
     private TicketService ticketService;
+    private TicketMapper ticketMapper;
 
     @PostMapping
     @ApiResponses({
@@ -35,7 +36,7 @@ public class TicketsController {
     })
     @ResponseStatus(HttpStatus.CREATED)
     public Ticket generate(@RequestBody @Valid TicketDto ticketDto) {
-        Ticket ticket = TicketMapper.INSTANCE.ticketDtoToTicket(ticketDto);
+        Ticket ticket = ticketMapper.ticketDtoToTicket(ticketDto);
         return ticketService.save(ticket);
     }
 }
