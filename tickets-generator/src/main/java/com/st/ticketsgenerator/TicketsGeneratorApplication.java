@@ -5,9 +5,12 @@ import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
 
 @SpringBootApplication
 @EnableRabbit
+@EnableDiscoveryClient
 @OpenAPIDefinition(info = @Info(title = "Tickets Generator API", version = "1.0", description = "Tickets generation to clients"))
 public class TicketsGeneratorApplication {
 
