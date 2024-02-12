@@ -12,4 +12,13 @@ public class StoreDto {
     private Integer id;
     @NotNull
     private String name;
+
+    @Override
+    public String toString() {
+        return "StoreDto{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
 }
