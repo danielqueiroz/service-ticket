@@ -4,10 +4,10 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
-@ConfigurationProperties("rabbit.generated-tickets")
+@ConfigurationProperties("rabbit.store-management")
 @Configuration
 @Data
-public class RabbitConfigProperties {
+public class RabbitStoreConfigProperties {
     private String exchangeName;
     private String queueName;
 }

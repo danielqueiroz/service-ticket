@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 
 @Entity
 @Table(name = "TICKET")
@@ -34,10 +35,12 @@ public class Ticket implements Serializable {
     @Column(name = "CLIENT_PHONE_NUMBER", nullable = false)
     private String clientPhoneNumber;
 
+    @Column(name = "GENERATED_AT", nullable = false)
+    private ZonedDateTime generatedAt;
+
 
     @Override
-    public String
-    toString() {
+    public String toString() {
         return "Ticket{" +
                 "id=" + id +
                 ", ticketNumber='" + ticketNumber + '\'' +
@@ -46,6 +49,7 @@ public class Ticket implements Serializable {
                 ", serviceId=" + serviceId +
                 ", serviceName='" + serviceName + '\'' +
                 ", clientPhoneNumber='" + clientPhoneNumber + '\'' +
+                ", generatedAt=" + generatedAt +
                 '}';
     }
 }
