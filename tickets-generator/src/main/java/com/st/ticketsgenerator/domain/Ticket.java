@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
 @Entity
@@ -16,7 +17,6 @@ public class Ticket implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     @Column(name = "TICKET_NUMBER", nullable = false)
     private String ticketNumber;
 
@@ -35,8 +35,13 @@ public class Ticket implements Serializable {
     @Column(name = "CLIENT_PHONE_NUMBER", nullable = false)
     private String clientPhoneNumber;
 
+    @Column(name = "CLIENT_CPF", nullable = false)
+    private String clientCpf;
+
+    @Column(name = "CLIENT_NAME", nullable = false)
+    private String clientName;
     @Column(name = "GENERATED_AT", nullable = false)
-    private ZonedDateTime generatedAt;
+    private LocalDateTime generatedAt;
 
 
     @Override
@@ -49,6 +54,8 @@ public class Ticket implements Serializable {
                 ", serviceId=" + serviceId +
                 ", serviceName='" + serviceName + '\'' +
                 ", clientPhoneNumber='" + clientPhoneNumber + '\'' +
+                ", clientCpf='" + clientCpf + '\'' +
+                ", clientName='" + clientName + '\'' +
                 ", generatedAt=" + generatedAt +
                 '}';
     }

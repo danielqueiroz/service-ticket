@@ -17,7 +17,9 @@ public class TicketMapperImpl implements TicketMapper {
         ticket.setStoreName(ticketDto.getStore().getName());
         ticket.setServiceId(ticketDto.getService().getId());
         ticket.setServiceName(ticketDto.getService().getName());
-        ticket.setClientPhoneNumber(ticketDto.getClientPhoneNumber());
+        ticket.setClientPhoneNumber(ticketDto.getClient().getPhoneNumber());
+        ticket.setClientCpf(ticketDto.getClient().getCpf());
+        ticket.setClientName(ticketDto.getClient().getName());
 
         return ticket;
     }

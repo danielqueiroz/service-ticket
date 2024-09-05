@@ -4,12 +4,11 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class TicketDto {
-
+public class ClientDto {
     @NotNull
-    private StoreDto store;
+    private String phoneNumber;
     @NotNull
-    private ServiceDto service;
+    private String name;
     @NotNull
-    private ClientDto client;
+    private String cpf;
 }

@@ -6,6 +6,8 @@ import com.st.ticketsgenerator.domain.repository.TicketRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 @AllArgsConstructor
 public class TicketServiceImpl implements TicketService {
@@ -18,6 +20,7 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public Ticket save(Ticket ticket) {
         ticket.setTicketNumber(String.format("%d",sequenceGenerator.getNext()));
+        ticket.setGeneratedAt(LocalDateTime.now());
         Ticket savedTicket = ticketRepository.save(ticket);
         ticketProducer.sendToQueue(savedTicket);
         return savedTicket;
