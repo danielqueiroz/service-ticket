@@ -10,6 +10,6 @@ public interface StoreService {
     Store insert(Store store);
     void update(Store store);
     void delete(Store store);
-    Optional<Store> findById(Long id);
+    Store findById(Long id);
     Optional<Store> findByClientId(String clientId);
 }

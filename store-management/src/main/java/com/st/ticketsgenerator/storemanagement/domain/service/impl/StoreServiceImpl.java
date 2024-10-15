@@ -38,8 +38,8 @@ public class StoreServiceImpl implements StoreService {
     }
 
     @Override
-    public Optional<Store> findById(Long id) {
-        return Optional.empty();
+    public Store findById(Long id) {
+        return repository.findById(id).orElseThrow();
     }
 
     @Override

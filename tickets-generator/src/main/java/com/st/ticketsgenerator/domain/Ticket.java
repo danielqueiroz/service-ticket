@@ -43,7 +43,6 @@ public class Ticket implements Serializable {
     @Column(name = "GENERATED_AT", nullable = false)
     private LocalDateTime generatedAt;
 
-
     @Override
     public String toString() {
         return "Ticket{" +

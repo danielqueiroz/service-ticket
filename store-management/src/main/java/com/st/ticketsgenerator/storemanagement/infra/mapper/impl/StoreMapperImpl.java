@@ -1,7 +1,8 @@
-package com.st.ticketsgenerator.storemanagement.infra.mapper;
+package com.st.ticketsgenerator.storemanagement.infra.mapper.impl;
 
 import com.st.ticketsgenerator.storemanagement.domain.Store;
 import com.st.ticketsgenerator.storemanagement.infra.dto.StoreDto;
+import com.st.ticketsgenerator.storemanagement.infra.mapper.StoreMapper;
 import org.springframework.stereotype.Component;
 
 @Component

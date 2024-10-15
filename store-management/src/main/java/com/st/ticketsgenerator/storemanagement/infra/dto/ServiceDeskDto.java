@@ -2,13 +2,10 @@ package com.st.ticketsgenerator.storemanagement.infra.dto;
 
 import lombok.Data;
 
-import java.util.List;
-
 @Data
-public class StoreDto {
+public class ServiceDeskDto {
 
     private Long id;
     private String name;
-    private String clientId;
-    private List<ServiceDeskDto> serviceDesks;
+    private StoreDto store;
 }
