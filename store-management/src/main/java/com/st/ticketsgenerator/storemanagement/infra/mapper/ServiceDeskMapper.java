@@ -1,6 +1,6 @@
 package com.st.ticketsgenerator.storemanagement.infra.mapper;
 
-import com.st.ticketsgenerator.storemanagement.domain.ServiceDesk;
+import com.st.ticketsgenerator.storemanagement.domain.entity.ServiceDesk;
 import com.st.ticketsgenerator.storemanagement.infra.dto.ServiceDeskDto;
 
 public interface ServiceDeskMapper {

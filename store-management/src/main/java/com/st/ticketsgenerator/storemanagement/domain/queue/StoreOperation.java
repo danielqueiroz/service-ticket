@@ -1,6 +1,6 @@
 package com.st.ticketsgenerator.storemanagement.domain.queue;
 
-import com.st.ticketsgenerator.storemanagement.domain.Store;
+import com.st.ticketsgenerator.storemanagement.domain.entity.Store;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

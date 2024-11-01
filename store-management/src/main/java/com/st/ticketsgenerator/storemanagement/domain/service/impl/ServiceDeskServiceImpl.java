@@ -1,6 +1,6 @@
 package com.st.ticketsgenerator.storemanagement.domain.service.impl;
 
-import com.st.ticketsgenerator.storemanagement.domain.ServiceDesk;
+import com.st.ticketsgenerator.storemanagement.domain.entity.ServiceDesk;
 import com.st.ticketsgenerator.storemanagement.domain.repository.ServiceDeskRepository;
 import com.st.ticketsgenerator.storemanagement.domain.service.ServiceDeskService;
 import lombok.AllArgsConstructor;

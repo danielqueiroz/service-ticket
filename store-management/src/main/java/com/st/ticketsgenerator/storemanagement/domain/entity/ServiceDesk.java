@@ -1,4 +1,4 @@
-package com.st.ticketsgenerator.storemanagement.domain;
+package com.st.ticketsgenerator.storemanagement.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

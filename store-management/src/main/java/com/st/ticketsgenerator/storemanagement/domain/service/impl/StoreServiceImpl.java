@@ -1,6 +1,6 @@
 package com.st.ticketsgenerator.storemanagement.domain.service.impl;
 
-import com.st.ticketsgenerator.storemanagement.domain.Store;
+import com.st.ticketsgenerator.storemanagement.domain.entity.Store;
 import com.st.ticketsgenerator.storemanagement.domain.queue.StoreOperation;
 import com.st.ticketsgenerator.storemanagement.domain.queue.StoreProducer;
 import com.st.ticketsgenerator.storemanagement.domain.repository.StoreRepository;

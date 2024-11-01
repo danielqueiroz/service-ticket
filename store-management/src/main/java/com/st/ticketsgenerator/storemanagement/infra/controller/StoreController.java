@@ -1,9 +1,7 @@
 package com.st.ticketsgenerator.storemanagement.infra.controller;
 
-import com.st.ticketsgenerator.storemanagement.domain.Store;
 import com.st.ticketsgenerator.storemanagement.domain.service.ServiceDeskService;
 import com.st.ticketsgenerator.storemanagement.domain.service.StoreService;
-import com.st.ticketsgenerator.storemanagement.infra.dto.ServiceDeskDto;
 import com.st.ticketsgenerator.storemanagement.infra.dto.StoreDto;
 import com.st.ticketsgenerator.storemanagement.infra.mapper.ServiceDeskMapper;
 import com.st.ticketsgenerator.storemanagement.infra.mapper.StoreMapper;
@@ -17,9 +15,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Tag(name = "Store", description = "Store's API")
 @RestController
@@ -41,7 +36,7 @@ public class StoreController {
             @ApiResponse(description = "BAD REQUEST", responseCode = "400", content = @Content)
     })
     @ResponseStatus(HttpStatus.CREATED)
-    public StoreDto create (@RequestBody @Valid StoreDto storeDto) {
+    public StoreDto create(@RequestBody @Valid StoreDto storeDto) {
         return mapper.toStoreDto(storeService.insert(mapper.toStore(storeDto)));
     }
 
@@ -52,8 +47,8 @@ public class StoreController {
                             schema = @Schema(implementation = StoreDto.class))}),
             @ApiResponse(description = "BAD REQUEST", responseCode = "400", content = @Content)
     })
-    @ResponseStatus(HttpStatus.CREATED)
-    public StoreDto findById (@PathVariable("id") Long id) {
+    @ResponseStatus(HttpStatus.OK)
+    public StoreDto findById(@PathVariable("id") Long id) {
         StoreDto dto = mapper.toStoreDto(storeService.findById(id));
         dto.setServiceDesks(serviceDeskService.findByStoreId(id).stream().map(serviceDeskMapper::toDto).toList());
 

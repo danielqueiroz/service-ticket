@@ -1,8 +1,7 @@
 package com.st.ticketsgenerator.storemanagement.domain.service;
 
-import com.st.ticketsgenerator.storemanagement.domain.Store;
+import com.st.ticketsgenerator.storemanagement.domain.entity.Store;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface StoreService {

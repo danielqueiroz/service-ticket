@@ -1,6 +1,6 @@
 package com.st.ticketsgenerator.storemanagement.domain.service;
 
-import com.st.ticketsgenerator.storemanagement.domain.ServiceDesk;
+import com.st.ticketsgenerator.storemanagement.domain.entity.ServiceDesk;
 
 import java.util.List;
 
