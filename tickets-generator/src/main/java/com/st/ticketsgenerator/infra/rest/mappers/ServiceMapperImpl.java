@@ -28,5 +28,6 @@ public class ServiceMapperImpl implements ServiceMapper {
         serviceDto.setId(service.getId());
         serviceDto.setName(service.getDescription());
         serviceDto.setLeaf(service.getLeaf());
+        serviceDto.setStoreId(service.getStoreId());
     }
 }
