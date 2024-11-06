@@ -6,7 +6,6 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 
 @Entity
 @Table(name = "TICKET")
@@ -21,13 +20,13 @@ public class Ticket implements Serializable {
     private String ticketNumber;
 
     @Column(name = "STORE_ID", nullable = false)
-    private Integer storeId;
+    private Long storeId;
 
     @Column(name = "STORE_NAME", nullable = false)
     private String storeName;
 
     @Column(name = "SERVICE_ID", nullable = false)
-    private Integer serviceId;
+    private Long serviceId;
 
     @Column(name = "SERVICE_NAME", nullable = false)
     private String serviceName;

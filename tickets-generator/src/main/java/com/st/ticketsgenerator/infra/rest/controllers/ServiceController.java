@@ -1,9 +1,11 @@
 package com.st.ticketsgenerator.infra.rest.controllers;
 
 import com.st.ticketsgenerator.domain.Ticket;
+import com.st.ticketsgenerator.domain.service.ServiceService;
 import com.st.ticketsgenerator.infra.rest.dtos.ServiceDto;
 import com.st.ticketsgenerator.infra.rest.dtos.StoreDto;
 import com.st.ticketsgenerator.infra.rest.dtos.TicketDto;
+import com.st.ticketsgenerator.infra.rest.mappers.ServiceMapper;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -22,7 +24,10 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 public class ServiceController {
 
-    @PostMapping
+    private ServiceService service;
+    private ServiceMapper serviceMapper;
+
+    @GetMapping("/tree/{storeId}")
     @ApiResponses({
             @ApiResponse(description = "OK", responseCode = "200",
                     content = { @Content(mediaType = "application/json",
@@ -31,8 +36,8 @@ public class ServiceController {
             @ApiResponse(description = "BAD REQUEST", responseCode = "400", content = @Content)
     })
     @ResponseStatus(HttpStatus.OK)
-    public ServiceDto getTreeByStore(@RequestBody @Valid StoreDto storeDto) {
+    public ServiceDto getTreeByStore(@PathVariable Long storeId) {
 
-        return null;
+        return serviceMapper.toDto(service.findServiceTree(storeId));
     }
 }

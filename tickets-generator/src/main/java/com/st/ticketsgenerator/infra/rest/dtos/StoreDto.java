@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 public class StoreDto {
     @NotNull
-    private Integer id;
+    private Long id;
     @NotNull
     private String name;
 
